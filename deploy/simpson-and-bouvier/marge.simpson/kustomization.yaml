@@ -1,0 +1,22 @@
+bases:
+- ../base
+
+commonLabels:
+  app: marge
+
+namePrefix: marge-
+namespace: simpson
+
+# Remove $namePrefix from namespace name
+patchesJson6902:
+- target:
+    version: v1
+    kind: Namespace
+    name: simpson
+  path: namespace.patch
+
+configMapGenerator:
+- name: container-helper-yaml
+  files:
+  - container-helper.yaml
+

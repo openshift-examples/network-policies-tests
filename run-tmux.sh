@@ -12,14 +12,14 @@ SERVER=$1
 
 if [ -z $TMUX ] ; then
   echo "Start new tmux session"
-  tmux new-session -d -s demo-$PID "watch curl -s -k http://homer-simpson.${SERVER}/demo"
+  tmux new-session -d -s demo-$PID "watch curl -s -k https://homer-web-simpson.${SERVER}/check"
 fi
-tmux split-window -d -t 0 -v  "watch curl -s -k http://marge-simpson.${SERVER}/demo"
-tmux split-window -d -t 0 -h  "watch curl -s -k http://selma-bouvier.${SERVER}/demo"
-tmux split-window -d -t 2 -h  "watch curl -s -k http://patty-bouvier.${SERVER}/demo"
+tmux split-window -d -t 0 -v  "watch curl -s -k https://marge-web-simpson.${SERVER}/check"
+tmux split-window -d -t 0 -h  "watch curl -s -k https://selma-web-bouvier.${SERVER}/check"
+tmux split-window -d -t 2 -h  "watch curl -s -k https://patty-web-bouvier.${SERVER}/check"
 if [ -z $TMUX ] ; then
   echo "Attach to session"
   tmux attach-session -t demo-$PID
 else
-  watch curl -s -k http://homer-simpson.${SERVER}/demo
+  watch curl -s -k http://homer-simpson.${SERVER}/check
 fi

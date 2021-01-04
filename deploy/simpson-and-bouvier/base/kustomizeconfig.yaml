@@ -1,0 +1,3 @@
+varReference:
+- path: spec/to/name
+  kind: Route
