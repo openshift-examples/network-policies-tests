@@ -20,7 +20,7 @@ vars:
     fieldpath: metadata.name
 
 resources:
-- namespace.yaml
+# - namespace.yaml
 - deployment.yaml
 - service.yaml
 - route.yaml
